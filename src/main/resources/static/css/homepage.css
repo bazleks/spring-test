@@ -1,0 +1,31 @@
+.block {
+    background-color: #ffaaaa;
+    display: table-cell;
+    text-align: center;
+    padding: 10px;
+}
+
+.blocks-panel {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 10px;
+}
+
+.block-creation-popup {
+    background-color: #aaffaa;
+    display: table;
+    margin: 20px auto;
+}
+
+.block-creation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #77777777;
+}
+
+.hidden {
+    display: none;
+}

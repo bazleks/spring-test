@@ -13,8 +13,8 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'gs-rest-service'
-    version =  '0.1.0'
+    baseName = 'when-it-was-app'
+    version = '0.2.0'
 }
 
 repositories {
@@ -26,5 +26,11 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.thymeleaf.extras:thymeleaf-extras-java8time")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:1.1.4.RELEASE")
+    compile("org.hsqldb:hsqldb:2.0.0")
+    compile("com.google.guava:guava:11.0.2")
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

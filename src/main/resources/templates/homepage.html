@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../css/homepage.css"/>
+    </head>
+    <body>
+        <h1 th:text="${'Hello, ' + user.name}">[Hello, user]</h1>
+        <div class="blocks-panel">
+            <div th:each="notification : ${notifications}"
+                 th:id="${notification.id}"
+                 class="block">
+                <h2 class="block-name" th:text="${notification.name}">[Notification Name]</h2>
+                <h3 class="block-time" th:text="${notification.duration.seconds / 86400 + ' days ' +
+                notification.duration.seconds % 86400 / 3600 + ' hours ' +
+                notification.duration.seconds % 3600 / 60 + ' minutes ' +
+                notification.duration.seconds % 60 + ' seconds'}">[Notification Time]</h3>
+            </div>
+            <div class="block">
+                <button type="button" onclick="showCreationPopup()" th:text="'Create new'">[Create new]</button>
+            </div>
+        </div>
+
+        <div id="block-creation" class="block-creation hidden">
+            <div class="block-creation-popup">
+                <form action="#" th:action="@{/createNotification}" th:object="${notification}" method="post">
+                    <h2 th:text="'Create Notification'">[New Notification]</h2>
+                    <h3 th:text="'Notification Name'">[Notification Name]</h3>
+                    <input type="text" th:field="*{name}"/>
+                    <h3 th:text="'Notification Date'">[Notification Date]</h3>
+                    <input type="date" th:field="*{time}" required="required"/>
+                    <input type="submit" value="Submit"/>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" th:src="@{/js/homepage.js}"></script>
+    </body>
+</html>
